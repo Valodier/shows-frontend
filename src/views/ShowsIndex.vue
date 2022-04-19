@@ -3,6 +3,9 @@
   <div v-for="show in shows" :key="show.id">
     <h2>{{ show.title }}</h2>
     <!-- .title specified which field within the array to output -->
+    <button>
+      <router-link v-bind:to="`/shows/${show.id}`">More Details</router-link>
+    </button>
   </div>
 </template>
 
