@@ -7,8 +7,10 @@
       <input type="text" v-model="showsEditParams.plot" />
       Year:
       <input type="text" v-model="showsEditParams.year" />
+      <br />
       <input type="submit" value="Update" />
     </form>
+    <button v-on:click="showDestroy(show)">Destroy</button>
   </div>
 </template>
 
@@ -46,6 +48,12 @@ export default {
           console.log("Error updating show", error.response);
           this.errors = error.response.data.errors;
         });
+    },
+    showDestroy: function (show) {
+      axios.delete("/shows/" + show.id + ".json").then((response) => {
+        console.log("Show Destroyed!", response.data);
+        this.$router.push("/shows");
+      });
     },
   },
 };
