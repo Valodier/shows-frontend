@@ -29,7 +29,7 @@ export default {
       console.log("Show retrieved", response.data);
       this.show = response.data;
       // redefines show to data
-      this.editShowParams = this.show;
+      this.showsEditParams = this.show;
       // redefined the edit params to be the fields within show
       // this is why there is real time editing, I think
     });
@@ -40,7 +40,7 @@ export default {
         .patch("/shows/" + show.id + ".json", this.showsEditParams)
         .then((response) => {
           console.log("Show Updated", response.data);
-          this.$route.push("/shows");
+          this.$router.push("/shows");
         })
         .catch((error) => {
           console.log("Error updating show", error.response);

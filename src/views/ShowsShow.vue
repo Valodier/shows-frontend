@@ -1,8 +1,10 @@
 <template>
   <div>
-    <p>{{ show.title }}</p>
-    <p>{{ show.plot }}</p>
-    <p>{{ show.year }}</p>
+    <h1>Title:{{ show.title }}</h1>
+    <p>Plot: {{ show.plot }}</p>
+    <p>Year: {{ show.year }}</p>
+    <router-link v-bind:to="`/shows/${show.id}/edit`"> Edit </router-link> |
+    <router-link to="/shows"> Back to All Shows </router-link>
   </div>
 </template>
 
